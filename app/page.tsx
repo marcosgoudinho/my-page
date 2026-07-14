@@ -4,6 +4,7 @@ import { Experience } from "@/components/experience"
 import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
 import { Education } from "@/components/education"
+import { Terminal } from "@/components/terminal"
 import { Contact } from "@/components/contact"
 import { profile } from "@/lib/portfolio-data"
 
@@ -18,6 +19,7 @@ export default function Page() {
           <Skills />
           <Projects />
           <Education />
+          <Terminal />
           <Contact />
         </div>
         <footer className="mt-20 pb-12 text-sm leading-relaxed text-muted-foreground">

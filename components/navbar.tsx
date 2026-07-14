@@ -11,7 +11,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map((item) => item.id)
+      const sections = [...navItems.map((item) => item.id), "terminal"]
       
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId)
@@ -68,6 +68,16 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="#terminal"
+              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
+                activeSection === "terminal"
+                  ? "bg-primary/20 text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Terminal
+            </Link>
           </div>
 
           {/* Right: Social Links */}

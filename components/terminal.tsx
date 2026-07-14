@@ -16,6 +16,7 @@ const COMMANDS = {
   skills    - List all skills
   projects  - Show projects
   contact   - Get contact information
+  secret    - Unlock a hidden secret
   clear     - Clear terminal
   help      - Show this help message`,
 
@@ -45,6 +46,14 @@ ${profile.title}`,
 GitHub: ${profile.socials.github}
 LinkedIn: ${profile.socials.linkedin}
 Twitter: ${profile.socials.twitter}`,
+
+  secret: () => `🔍 You found a hidden secret!
+  
+Try this keyboard combination to unlock Developer Mode:
+↑ ↑ ↓ ↓ ← → ← → B A
+
+(Classic Konami Code - use arrow keys + B + A)
+Good luck! 🚀`,
 
   clear: () => 'CLEAR_TERMINAL',
 }

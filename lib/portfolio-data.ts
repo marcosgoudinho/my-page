@@ -16,7 +16,7 @@ export const navItems = [
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "education", label: "Education" },
+  { id: "education", label: "Courses" },
 ] as const
 
 export const experiences = [
@@ -105,6 +105,7 @@ export const education = [
     school: "University of California, Berkeley",
     description:
       "Focused on distributed systems and human-computer interaction. Graduated with honors and led the student web development club.",
+    certificate: "/certificates/berkeley-cs.png",
   },
   {
     period: "2022",
@@ -112,5 +113,6 @@ export const education = [
     school: "Amazon Web Services",
     description:
       "Professional certification covering scalable, resilient cloud architecture and best practices.",
+    certificate: "/certificates/aws-architect.png",
   },
 ]

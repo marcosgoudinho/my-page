@@ -1,12 +1,10 @@
 import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/about"
 import { experiences } from "@/lib/portfolio-data"
 
 export function Experience() {
   return (
     <section id="experience" aria-label="Work experience" className="scroll-mt-24">
-      <SectionHeading>Experience</SectionHeading>
       <ol className="group/list space-y-3">
         {experiences.map((job, i) => (
           <li key={job.role}>

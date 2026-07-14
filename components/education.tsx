@@ -1,11 +1,9 @@
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/about"
 import { education } from "@/lib/portfolio-data"
 
 export function Education() {
   return (
     <section id="education" aria-label="Education and certifications" className="scroll-mt-24">
-      <SectionHeading>Education</SectionHeading>
       <ol className="space-y-3">
         {education.map((item, i) => (
           <li key={item.degree}>

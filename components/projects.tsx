@@ -2,13 +2,11 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { GithubIcon } from "@/components/brand-icons"
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/about"
 import { projects } from "@/lib/portfolio-data"
 
 export function Projects() {
   return (
     <section id="projects" aria-label="Selected projects" className="scroll-mt-24">
-      <SectionHeading>Projects</SectionHeading>
       <ol className="group/list space-y-3">
         {projects.map((project, i) => (
           <li key={project.title}>

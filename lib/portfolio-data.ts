@@ -73,7 +73,7 @@ export const projects = [
     title: "Atlas Analytics",
     description:
       "A real-time analytics dashboard for product teams, with custom event tracking, funnel analysis, and shareable reports. Handles millions of events per day.",
-    image: "/project-analytics.png",
+    images: ["/project-analytics.png", "/project-commerce.png", "/project-cadence.png"],
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Redis"],
     url: "https://example.com",
     repo: "https://github.com",
@@ -82,7 +82,7 @@ export const projects = [
     title: "Lumen Commerce",
     description:
       "Headless e-commerce storefront with a custom CMS, Stripe checkout, and sub-second page loads powered by edge rendering and smart caching.",
-    image: "/project-commerce.png",
+    images: ["/project-commerce.png", "/project-analytics.png"],
     tags: ["React", "Node.js", "Stripe", "Tailwind CSS"],
     url: "https://example.com",
     repo: "https://github.com",
@@ -91,7 +91,7 @@ export const projects = [
     title: "Cadence",
     description:
       "An open-source team retrospective tool with live collaboration, anonymous voting, and timeboxed sessions. Built with WebSockets for real-time sync.",
-    image: "/project-cadence.png",
+    images: ["/project-cadence.png", "/project-analytics.png", "/project-commerce.png"],
     tags: ["Vue.js", "WebSockets", "Go", "Docker"],
     url: "https://example.com",
     repo: "https://github.com",

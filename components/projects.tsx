@@ -1,7 +1,7 @@
-import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { GithubIcon } from "@/components/brand-icons"
 import { Reveal } from "@/components/reveal"
+import { ProjectCarousel } from "@/components/project-carousel"
 import { projects } from "@/lib/portfolio-data"
 
 export function Projects() {
@@ -13,13 +13,7 @@ export function Projects() {
             <Reveal delay={i * 80}>
               <div className="group relative grid gap-4 rounded-lg p-4 transition-all hover:bg-card hover:shadow-lg sm:grid-cols-8 sm:gap-6 lg:group-hover/list:opacity-50 lg:hover:!opacity-100">
                 <div className="sm:col-span-3">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={`Screenshot of ${project.title}`}
-                    width={400}
-                    height={250}
-                    className="aspect-video w-full rounded-md border border-border object-cover"
-                  />
+                  <ProjectCarousel images={project.images} title={project.title} />
                 </div>
                 <div className="sm:col-span-5">
                   <h3 className="font-medium text-foreground">

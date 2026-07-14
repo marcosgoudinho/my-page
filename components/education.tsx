@@ -6,6 +6,17 @@ import { X } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { education } from "@/lib/portfolio-data"
 
+function formatDateRange(startDate: string, endDate: string): string {
+  const start = new Date(startDate)
+  const end = new Date(endDate)
+
+  const options: Intl.DateTimeFormatOptions = { month: "short", year: "numeric" }
+  const startFormatted = start.toLocaleDateString("en-US", options)
+  const endFormatted = end.toLocaleDateString("en-US", options)
+
+  return `${startFormatted} — ${endFormatted}`
+}
+
 export function Education() {
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null)
 
@@ -30,7 +41,7 @@ export function Education() {
             <Reveal delay={i * 80}>
               <div className="grid gap-3 rounded-lg p-4 transition-colors hover:bg-card sm:grid-cols-8 sm:gap-6">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2 sm:pt-1">
-                  {item.period}
+                  {formatDateRange(item.startDate, item.endDate)}
                 </p>
                 <div className="sm:col-span-6">
                   <h3 className="font-medium text-foreground">{item.degree}</h3>

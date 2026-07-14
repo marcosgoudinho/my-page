@@ -100,7 +100,8 @@ export const projects = [
 
 export const education = [
   {
-    period: "2015 — 2019",
+    startDate: "2015-09-01",
+    endDate: "2019-05-15",
     degree: "B.Sc. in Computer Science",
     school: "University of California, Berkeley",
     description:
@@ -108,7 +109,8 @@ export const education = [
     certificate: "/certificates/berkeley-cs.png",
   },
   {
-    period: "2022",
+    startDate: "2022-03-01",
+    endDate: "2022-06-15",
     degree: "AWS Certified Solutions Architect",
     school: "Amazon Web Services",
     description:

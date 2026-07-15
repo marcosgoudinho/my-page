@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { X } from "lucide-react"
+import { X, ChevronDown, ChevronUp } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { education } from "@/lib/portfolio-data"
 
@@ -21,8 +21,11 @@ function formatDateRange(startDate: string, endDate: string): string {
   return `${startMonth} ${startYear} — ${endMonth} ${endYear}`
 }
 
+const ITEMS_PER_PAGE = 4
+
 export function Education() {
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null)
+  const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -37,10 +40,13 @@ export function Education() {
     }
   }, [selectedCertificate])
 
+  const displayedEducation = education.slice(0, displayCount)
+  const hasMore = education.length > displayCount
+
   return (
     <section id="education" aria-label="Education and certifications" className="scroll-mt-24">
       <ol className="space-y-3">
-        {education.map((item, i) => (
+        {displayedEducation.map((item, i) => (
           <li key={item.degree}>
             <Reveal delay={i * 80}>
               <div className="grid gap-3 rounded-lg p-4 transition-colors hover:bg-card sm:grid-cols-8 sm:gap-6">
@@ -66,6 +72,34 @@ export function Education() {
           </li>
         ))}
       </ol>
+
+      {/* Ver Mais / Ver Menos Button */}
+      {education.length > ITEMS_PER_PAGE && (
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={() => {
+              if (hasMore) {
+                setDisplayCount((prev) => prev + ITEMS_PER_PAGE)
+              } else {
+                setDisplayCount(ITEMS_PER_PAGE)
+              }
+            }}
+            className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+          >
+            {hasMore ? (
+              <>
+                Ver mais
+                <ChevronDown className="size-4" aria-hidden="true" />
+              </>
+            ) : (
+              <>
+                Ver menos
+                <ChevronUp className="size-4" aria-hidden="true" />
+              </>
+            )}
+          </button>
+        </div>
+      )}
 
       {/* Certificate Modal */}
       {selectedCertificate && (

@@ -117,4 +117,58 @@ export const education = [
       "Professional certification covering scalable, resilient cloud architecture and best practices.",
     certificate: "/certificates/aws-architect.png",
   },
+  {
+    startDate: "2023-01-15",
+    endDate: "2023-04-20",
+    degree: "Google Cloud Associate Cloud Engineer",
+    school: "Google Cloud",
+    description:
+      "Certification demonstrating skills in managing and deploying applications on Google Cloud Platform.",
+    certificate: "/certificates/gcp-engineer.png",
+  },
+  {
+    startDate: "2023-05-01",
+    endDate: "2023-08-10",
+    degree: "Kubernetes Application Developer",
+    school: "Linux Foundation",
+    description:
+      "Advanced certification for building, configuring, and exposing applications running on Kubernetes clusters.",
+    certificate: "/certificates/kubernetes.png",
+  },
+  {
+    startDate: "2023-09-01",
+    endDate: "2023-11-30",
+    degree: "Docker Certified Associate",
+    school: "Docker",
+    description:
+      "Professional certification validating expertise in containerization and Docker platform.",
+    certificate: "/certificates/docker.png",
+  },
+  {
+    startDate: "2024-01-10",
+    endDate: "2024-03-25",
+    degree: "Certified Kubernetes Administrator (CKA)",
+    school: "Linux Foundation",
+    description:
+      "Advanced certification demonstrating proficiency in managing production-grade Kubernetes clusters.",
+    certificate: "/certificates/cka.png",
+  },
+  {
+    startDate: "2024-04-01",
+    endDate: "2024-06-15",
+    degree: "HashiCorp Certified: Terraform Associate",
+    school: "HashiCorp",
+    description:
+      "Certification covering Infrastructure as Code principles and Terraform fundamentals.",
+    certificate: "/certificates/terraform.png",
+  },
+  {
+    startDate: "2024-07-01",
+    endDate: "2024-09-30",
+    degree: "Advanced JavaScript & TypeScript",
+    school: "Udemy",
+    description:
+      "Comprehensive course covering advanced JavaScript patterns, async programming, and TypeScript mastery.",
+    certificate: "/certificates/typescript.png",
+  },
 ]

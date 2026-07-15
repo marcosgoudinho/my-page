@@ -10,6 +10,38 @@ export const profile = {
     instagram: "https://instagram.com",
     whatsapp: "https://wa.me/",
   },
+  activityPhotos: [
+    {
+      src: "/activity-1.png",
+      alt: "Presenting at tech conference",
+      caption: "Speaking at React Summit 2024",
+    },
+    {
+      src: "/activity-2.png",
+      alt: "Team at tech event",
+      caption: "Networking at Web Dev Conference",
+    },
+    {
+      src: "/activity-3.png",
+      alt: "Workshop teaching session",
+      caption: "Teaching at JavaScript Meetup",
+    },
+    {
+      src: "/activity-4.png",
+      alt: "Professional photo at event",
+      caption: "Tech Conference Networking",
+    },
+    {
+      src: "/activity-5.png",
+      alt: "Team collaboration",
+      caption: "Team Building Activity",
+    },
+    {
+      src: "/activity-6.png",
+      alt: "Award recognition",
+      caption: "Developer Excellence Award",
+    },
+  ],
 }
 
 export const navItems = [

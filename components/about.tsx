@@ -1,8 +1,14 @@
 import { Reveal } from "@/components/reveal"
+import { ActivityGallery } from "@/components/activity-gallery"
+import { profile } from "@/lib/portfolio-data"
 
 export function About() {
   return (
     <section id="about" aria-label="About me" className="scroll-mt-24">
+      {/* Activity Gallery */}
+      <ActivityGallery photos={profile.activityPhotos} />
+
+      {/* Bio Text */}
       <Reveal>
         <div className="space-y-4 leading-relaxed text-muted-foreground">
           <p>

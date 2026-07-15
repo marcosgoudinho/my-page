@@ -7,9 +7,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 interface ProjectCarouselProps {
   images: string[]
   title: string
+  onImageClick?: (index: number) => void
 }
 
-export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
+export function ProjectCarousel({ images, title, onImageClick }: ProjectCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const goToPrevious = useCallback(() => {
@@ -35,7 +36,11 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
   return (
     <div className="relative group">
       {/* Image Container */}
-      <div className="relative aspect-video w-full overflow-hidden rounded-md border border-border bg-muted">
+      <button
+        onClick={() => onImageClick?.(currentIndex)}
+        className="relative aspect-video w-full overflow-hidden rounded-md border border-border bg-muted cursor-pointer hover:opacity-90 transition-opacity"
+        aria-label={`Expand ${title} image`}
+      >
         <Image
           src={images[currentIndex]}
           alt={`${title} screenshot ${currentIndex + 1}`}
@@ -43,7 +48,7 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
           className="object-cover transition-opacity duration-300"
           priority={currentIndex === 0}
         />
-      </div>
+      </button>
 
       {/* Navigation Buttons */}
       {images.length > 1 && (

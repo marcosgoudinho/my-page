@@ -1,10 +1,19 @@
+"use client"
+
+import { useState } from "react"
 import { ArrowUpRight } from "lucide-react"
 import { GithubIcon } from "@/components/brand-icons"
 import { Reveal } from "@/components/reveal"
 import { ProjectCarousel } from "@/components/project-carousel"
+import { ProjectImageModal } from "@/components/project-image-modal"
 import { projects } from "@/lib/portfolio-data"
 
 export function Projects() {
+  const [selectedProject, setSelectedProject] = useState<{
+    projectIndex: number
+    imageIndex: number
+  } | null>(null)
+
   return (
     <section id="projects" aria-label="Selected projects" className="scroll-mt-24">
       <ol className="group/list space-y-3">
@@ -13,7 +22,13 @@ export function Projects() {
             <Reveal delay={i * 80}>
               <div className="group relative grid gap-4 rounded-lg p-4 transition-all hover:bg-card hover:shadow-lg sm:grid-cols-8 sm:gap-6 lg:group-hover/list:opacity-50 lg:hover:!opacity-100">
                 <div className="sm:col-span-3">
-                  <ProjectCarousel images={project.images} title={project.title} />
+                  <ProjectCarousel
+                    images={project.images}
+                    title={project.title}
+                    onImageClick={(imageIndex) =>
+                      setSelectedProject({ projectIndex: i, imageIndex })
+                    }
+                  />
                 </div>
                 <div className="sm:col-span-5">
                   <h3 className="font-medium text-foreground">
@@ -52,6 +67,17 @@ export function Projects() {
           </li>
         ))}
       </ol>
+
+      {/* Image Modal */}
+      {selectedProject && (
+        <ProjectImageModal
+          images={projects[selectedProject.projectIndex].images}
+          title={projects[selectedProject.projectIndex].title}
+          initialIndex={selectedProject.imageIndex}
+          isOpen={true}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   )
 }

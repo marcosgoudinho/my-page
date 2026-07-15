@@ -45,7 +45,8 @@ ${profile.title}`,
   contact: () => `Email: ${profile.email}
 GitHub: ${profile.socials.github}
 LinkedIn: ${profile.socials.linkedin}
-Twitter: ${profile.socials.twitter}`,
+Instagram: ${profile.socials.instagram}
+WhatsApp: ${profile.socials.whatsapp}`,
 
   secret: () => `🔍 You found a hidden secret!
   

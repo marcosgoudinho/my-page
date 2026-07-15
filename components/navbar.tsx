@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/brand-icons"
+import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon } from "@/components/brand-icons"
 import { profile, navItems } from "@/lib/portfolio-data"
 
 export function Navbar() {
@@ -31,7 +31,8 @@ export function Navbar() {
   const socials = [
     { icon: GithubIcon, href: profile.socials.github, label: "GitHub" },
     { icon: LinkedinIcon, href: profile.socials.linkedin, label: "LinkedIn" },
-    { icon: TwitterIcon, href: profile.socials.twitter, label: "Twitter" },
+    { icon: InstagramIcon, href: profile.socials.instagram, label: "Instagram" },
+    { icon: WhatsappIcon, href: profile.socials.whatsapp, label: "WhatsApp" },
   ]
 
   return (

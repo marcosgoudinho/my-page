@@ -7,14 +7,18 @@ import { Reveal } from "@/components/reveal"
 import { education } from "@/lib/portfolio-data"
 
 function formatDateRange(startDate: string, endDate: string): string {
-  const start = new Date(startDate)
-  const end = new Date(endDate)
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  
+  const start = new Date(startDate + "T00:00:00Z")
+  const end = new Date(endDate + "T00:00:00Z")
 
-  const options: Intl.DateTimeFormatOptions = { month: "short", year: "numeric" }
-  const startFormatted = start.toLocaleDateString("en-US", options)
-  const endFormatted = end.toLocaleDateString("en-US", options)
+  const startMonth = monthNames[start.getUTCMonth()]
+  const startYear = start.getUTCFullYear()
+  
+  const endMonth = monthNames[end.getUTCMonth()]
+  const endYear = end.getUTCFullYear()
 
-  return `${startFormatted} — ${endFormatted}`
+  return `${startMonth} ${startYear} — ${endMonth} ${endYear}`
 }
 
 export function Education() {

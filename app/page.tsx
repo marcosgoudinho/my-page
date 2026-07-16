@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect } from "react"
 import { Navbar } from "@/components/navbar"
 import { About } from "@/components/about"
 import { Experience } from "@/components/experience"
@@ -9,6 +12,10 @@ import { Contact } from "@/components/contact"
 import { profile } from "@/lib/portfolio-data"
 
 export default function Page() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="min-h-screen">
       <Navbar />

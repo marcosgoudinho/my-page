@@ -1,14 +1,14 @@
 export const profile = {
-  name: "Alex Carter",
+  name: "Marcos Goudinho",
   title: "Full-Stack Developer",
   tagline: "I build accessible, performant web applications from front to back.",
-  location: "San Francisco, CA",
-  email: "alex.carter@example.com",
+  location: "Criciúma, SC",
+  email: "marcos.goudinho@outlook.com",
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    instagram: "https://instagram.com",
-    whatsapp: "https://wa.me/",
+    github: "https://github.com/marcosgoudinho",
+    linkedin: "https://www.linkedin.com/in/marcos-goudinho-50631b266",
+    instagram: "https://www.instagram.com/marcos.goudinho?igsh=Mmh0azJxeXF6YmVl&utm_source=qr",
+    whatsapp: "https://wa.me/qr/UP36PTWU2XBCC1",
   },
   activityPhotos: [
     {
@@ -54,50 +54,41 @@ export const navItems = [
 
 export const experiences = [
   {
-    period: "2023 — Present",
-    role: "Senior Full-Stack Developer",
-    company: "Northwind Labs",
-    url: "https://example.com",
+    period: "2025/2 — Present",
+    role: "Junior Full-Stack Developer",
+    company: "Agrosys",
+    url: "https://www.agrosys.com.br/",
     description:
-      "Lead development of a multi-tenant SaaS platform serving 40k+ monthly users. Architected the migration from a monolith to a modular Next.js + Node.js stack, cutting page load times by 45%.",
-    stack: ["TypeScript", "Next.js", "Node.js", "PostgreSQL", "AWS"],
+      "Today, I work in the innovation team at Agrosys, where we focus on researching and implementing new technologies and features for the company's ERP system. Our current main focus is integrating Artificial Intelligence (AI) into the ERP. I also develop and maintain ERP screens and business features, in addition to maintaining the company's Cordova-based mobile applications and managing their publication and updates on the Google Play Store and Apple App Store.",
+    stack: ["Progress ABL", "AngularJS", "jQuery", "JavaScript", "PHP", "Cordova", "Docker", "AI Integration"],
   },
   {
-    period: "2021 — 2023",
-    role: "Full-Stack Developer",
-    company: "Brightwave Studio",
-    url: "https://example.com",
+    period: "2025/1",
+    role: "Full Stack Developer Intern",
+    company: "Agrosys",
+    url: "https://www.agrosys.com.br/",
     description:
-      "Built and shipped client web apps across e-commerce, fintech, and healthcare. Owned features end to end, from database schema design to polished, accessible interfaces.",
-    stack: ["React", "Express", "MongoDB", "Tailwind CSS", "Docker"],
-  },
-  {
-    period: "2019 — 2021",
-    role: "Junior Web Developer",
-    company: "Pixel & Co.",
-    url: "https://example.com",
-    description:
-      "Developed responsive marketing sites and internal tools. Collaborated closely with designers to translate Figma mockups into pixel-perfect, performant pages.",
-    stack: ["JavaScript", "Vue.js", "Sass", "PHP"],
+      "During my internship at Agrosys, I worked on the development and maintenance of ERP features while building a strong foundation in software development. I gained hands-on experience with Progress OpenEdge ABL, JavaScript, jQuery, HTML, CSS, and Linux, contributing to real-world business applications and improving my understanding of enterprise software development, debugging, and system maintenance.",
+    stack: ["Progress ABL", "JavaScript", "jQuery", "HTML", "CSS", "Linux"],
   },
 ]
 
 export const skills = [
   {
     category: "Frontend",
-    items: ["TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "Framer Motion"],
+    items: ["JavaScript", "AngularJS", "React", "Bootstrap"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "Python", "Go", "GraphQL", "REST APIs"],
+    items: ["Node.js", "Java", "Spring Boot", "Progress ABL", "REST APIs"],
   },
   {
     category: "Database & Infra",
-    items: ["PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Vercel"],
+    items: ["PostgreSQL", "Docker", "Kubernetes","Vercel", "Google Cloud Platform", "AWS"],
   },
   {
     category: "Tools & Practices",
-    items: ["Git", "CI/CD", "Jest", "Playwright", "Figma", "Agile"],
+    items: ["Git", "CI/CD", "Playwright", "Figma", "Agile"],
   },
 ]
 
@@ -133,75 +124,12 @@ export const projects = [
 
 export const education = [
   {
-    startDate: "2015-09-01",
-    endDate: "2019-05-15",
-    degree: "B.Sc. in Computer Science",
-    school: "University of California, Berkeley",
-    description:
-      "Focused on distributed systems and human-computer interaction. Graduated with honors and led the student web development club.",
-    certificate: "/certificates/berkeley-cs.png",
-  },
-  {
-    startDate: "2022-03-01",
-    endDate: "2022-06-15",
-    degree: "AWS Certified Solutions Architect",
-    school: "Amazon Web Services",
-    description:
-      "Professional certification covering scalable, resilient cloud architecture and best practices.",
-    certificate: "/certificates/aws-architect.png",
-  },
-  {
-    startDate: "2023-01-15",
-    endDate: "2023-04-20",
-    degree: "Google Cloud Associate Cloud Engineer",
-    school: "Google Cloud",
-    description:
-      "Certification demonstrating skills in managing and deploying applications on Google Cloud Platform.",
-    certificate: "/certificates/gcp-engineer.png",
-  },
-  {
-    startDate: "2023-05-01",
-    endDate: "2023-08-10",
-    degree: "Kubernetes Application Developer",
-    school: "Linux Foundation",
-    description:
-      "Advanced certification for building, configuring, and exposing applications running on Kubernetes clusters.",
-    certificate: "/certificates/kubernetes.png",
-  },
-  {
-    startDate: "2023-09-01",
-    endDate: "2023-11-30",
-    degree: "Docker Certified Associate",
-    school: "Docker",
-    description:
-      "Professional certification validating expertise in containerization and Docker platform.",
-    certificate: "/certificates/docker.png",
-  },
-  {
-    startDate: "2024-01-10",
-    endDate: "2024-03-25",
-    degree: "Certified Kubernetes Administrator (CKA)",
-    school: "Linux Foundation",
-    description:
-      "Advanced certification demonstrating proficiency in managing production-grade Kubernetes clusters.",
-    certificate: "/certificates/cka.png",
-  },
-  {
-    startDate: "2024-04-01",
-    endDate: "2024-06-15",
-    degree: "HashiCorp Certified: Terraform Associate",
-    school: "HashiCorp",
-    description:
-      "Certification covering Infrastructure as Code principles and Terraform fundamentals.",
-    certificate: "/certificates/terraform.png",
-  },
-  {
     startDate: "2024-07-01",
-    endDate: "2024-09-30",
-    degree: "Advanced JavaScript & TypeScript",
-    school: "Udemy",
+    endDate: "2026-07-04",
+    degree: "Fluency in English",
+    school: "Rockfeller English Academy",
     description:
-      "Comprehensive course covering advanced JavaScript patterns, async programming, and TypeScript mastery.",
-    certificate: "/certificates/typescript.png",
-  },
+      "Focused on achieving fluency in English through intensive courses and immersive language experiences.",
+    certificate: "/certificates/rockfeller-english.png",
+  }
 ]

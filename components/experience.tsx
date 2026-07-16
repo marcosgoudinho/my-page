@@ -1,12 +1,22 @@
-import { ArrowUpRight } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { experiences } from "@/lib/portfolio-data"
 
+const ITEMS_PER_PAGE = 4
+
 export function Experience() {
+  const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
+
+  const displayedExperiences = experiences.slice(0, displayCount)
+  const hasMore = experiences.length > displayCount
+
   return (
     <section id="experience" aria-label="Work experience" className="scroll-mt-24">
       <ol className="group/list space-y-3">
-        {experiences.map((job, i) => (
+        {displayedExperiences.map((job, i) => (
           <li key={job.role}>
             <Reveal delay={i * 80}>
               <a
@@ -39,6 +49,34 @@ export function Experience() {
           </li>
         ))}
       </ol>
+
+      {/* Ver Mais / Ver Menos Button */}
+      {experiences.length > ITEMS_PER_PAGE && (
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={() => {
+              if (hasMore) {
+                setDisplayCount((prev) => prev + ITEMS_PER_PAGE)
+              } else {
+                setDisplayCount(ITEMS_PER_PAGE)
+              }
+            }}
+            className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+          >
+            {hasMore ? (
+              <>
+                Ver mais
+                <ChevronDown className="size-4" aria-hidden="true" />
+              </>
+            ) : (
+              <>
+                Ver menos
+                <ChevronUp className="size-4" aria-hidden="true" />
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </section>
   )
 }

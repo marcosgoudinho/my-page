@@ -1,11 +1,9 @@
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/about"
 import { skills } from "@/lib/portfolio-data"
 
 export function Skills() {
   return (
     <section id="skills" aria-label="Skills and technologies" className="scroll-mt-24">
-      <SectionHeading>Skills</SectionHeading>
       <div className="grid gap-4 sm:grid-cols-2">
         {skills.map((group, i) => (
           <Reveal key={group.category} delay={i * 80}>

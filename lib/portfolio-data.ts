@@ -7,8 +7,41 @@ export const profile = {
   socials: {
     github: "https://github.com",
     linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    instagram: "https://instagram.com",
+    whatsapp: "https://wa.me/",
   },
+  activityPhotos: [
+    {
+      src: "/activity-1.png",
+      alt: "Presenting at tech conference",
+      caption: "Speaking at React Summit 2024",
+    },
+    {
+      src: "/activity-2.png",
+      alt: "Team at tech event",
+      caption: "Networking at Web Dev Conference",
+    },
+    {
+      src: "/activity-3.png",
+      alt: "Workshop teaching session",
+      caption: "Teaching at JavaScript Meetup",
+    },
+    {
+      src: "/activity-4.png",
+      alt: "Professional photo at event",
+      caption: "Tech Conference Networking",
+    },
+    {
+      src: "/activity-5.png",
+      alt: "Team collaboration",
+      caption: "Team Building Activity",
+    },
+    {
+      src: "/activity-6.png",
+      alt: "Award recognition",
+      caption: "Developer Excellence Award",
+    },
+  ],
 }
 
 export const navItems = [
@@ -16,7 +49,7 @@ export const navItems = [
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "education", label: "Education" },
+  { id: "education", label: "Courses" },
 ] as const
 
 export const experiences = [
@@ -73,7 +106,7 @@ export const projects = [
     title: "Atlas Analytics",
     description:
       "A real-time analytics dashboard for product teams, with custom event tracking, funnel analysis, and shareable reports. Handles millions of events per day.",
-    image: "/project-analytics.png",
+    images: ["/project-analytics.png", "/project-commerce.png", "/project-cadence.png"],
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Redis"],
     url: "https://example.com",
     repo: "https://github.com",
@@ -82,7 +115,7 @@ export const projects = [
     title: "Lumen Commerce",
     description:
       "Headless e-commerce storefront with a custom CMS, Stripe checkout, and sub-second page loads powered by edge rendering and smart caching.",
-    image: "/project-commerce.png",
+    images: ["/project-commerce.png", "/project-analytics.png"],
     tags: ["React", "Node.js", "Stripe", "Tailwind CSS"],
     url: "https://example.com",
     repo: "https://github.com",
@@ -91,7 +124,7 @@ export const projects = [
     title: "Cadence",
     description:
       "An open-source team retrospective tool with live collaboration, anonymous voting, and timeboxed sessions. Built with WebSockets for real-time sync.",
-    image: "/project-cadence.png",
+    images: ["/project-cadence.png", "/project-analytics.png", "/project-commerce.png"],
     tags: ["Vue.js", "WebSockets", "Go", "Docker"],
     url: "https://example.com",
     repo: "https://github.com",
@@ -100,17 +133,75 @@ export const projects = [
 
 export const education = [
   {
-    period: "2015 — 2019",
+    startDate: "2015-09-01",
+    endDate: "2019-05-15",
     degree: "B.Sc. in Computer Science",
     school: "University of California, Berkeley",
     description:
       "Focused on distributed systems and human-computer interaction. Graduated with honors and led the student web development club.",
+    certificate: "/certificates/berkeley-cs.png",
   },
   {
-    period: "2022",
+    startDate: "2022-03-01",
+    endDate: "2022-06-15",
     degree: "AWS Certified Solutions Architect",
     school: "Amazon Web Services",
     description:
       "Professional certification covering scalable, resilient cloud architecture and best practices.",
+    certificate: "/certificates/aws-architect.png",
+  },
+  {
+    startDate: "2023-01-15",
+    endDate: "2023-04-20",
+    degree: "Google Cloud Associate Cloud Engineer",
+    school: "Google Cloud",
+    description:
+      "Certification demonstrating skills in managing and deploying applications on Google Cloud Platform.",
+    certificate: "/certificates/gcp-engineer.png",
+  },
+  {
+    startDate: "2023-05-01",
+    endDate: "2023-08-10",
+    degree: "Kubernetes Application Developer",
+    school: "Linux Foundation",
+    description:
+      "Advanced certification for building, configuring, and exposing applications running on Kubernetes clusters.",
+    certificate: "/certificates/kubernetes.png",
+  },
+  {
+    startDate: "2023-09-01",
+    endDate: "2023-11-30",
+    degree: "Docker Certified Associate",
+    school: "Docker",
+    description:
+      "Professional certification validating expertise in containerization and Docker platform.",
+    certificate: "/certificates/docker.png",
+  },
+  {
+    startDate: "2024-01-10",
+    endDate: "2024-03-25",
+    degree: "Certified Kubernetes Administrator (CKA)",
+    school: "Linux Foundation",
+    description:
+      "Advanced certification demonstrating proficiency in managing production-grade Kubernetes clusters.",
+    certificate: "/certificates/cka.png",
+  },
+  {
+    startDate: "2024-04-01",
+    endDate: "2024-06-15",
+    degree: "HashiCorp Certified: Terraform Associate",
+    school: "HashiCorp",
+    description:
+      "Certification covering Infrastructure as Code principles and Terraform fundamentals.",
+    certificate: "/certificates/terraform.png",
+  },
+  {
+    startDate: "2024-07-01",
+    endDate: "2024-09-30",
+    degree: "Advanced JavaScript & TypeScript",
+    school: "Udemy",
+    description:
+      "Comprehensive course covering advanced JavaScript patterns, async programming, and TypeScript mastery.",
+    certificate: "/certificates/typescript.png",
   },
 ]

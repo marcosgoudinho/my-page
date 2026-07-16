@@ -1,26 +1,39 @@
-import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react"
 import { GithubIcon } from "@/components/brand-icons"
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/about"
+import { ProjectCarousel } from "@/components/project-carousel"
+import { ProjectImageModal } from "@/components/project-image-modal"
 import { projects } from "@/lib/portfolio-data"
 
+const ITEMS_PER_PAGE = 4
+
 export function Projects() {
+  const [selectedProject, setSelectedProject] = useState<{
+    projectIndex: number
+    imageIndex: number
+  } | null>(null)
+  const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
+
+  const displayedProjects = projects.slice(0, displayCount)
+  const hasMore = projects.length > displayCount
+
   return (
     <section id="projects" aria-label="Selected projects" className="scroll-mt-24">
-      <SectionHeading>Projects</SectionHeading>
       <ol className="group/list space-y-3">
-        {projects.map((project, i) => (
+        {displayedProjects.map((project, i) => (
           <li key={project.title}>
             <Reveal delay={i * 80}>
               <div className="group relative grid gap-4 rounded-lg p-4 transition-all hover:bg-card hover:shadow-lg sm:grid-cols-8 sm:gap-6 lg:group-hover/list:opacity-50 lg:hover:!opacity-100">
                 <div className="sm:col-span-3">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={`Screenshot of ${project.title}`}
-                    width={400}
-                    height={250}
-                    className="aspect-video w-full rounded-md border border-border object-cover"
+                  <ProjectCarousel
+                    images={project.images}
+                    title={project.title}
+                    onImageClick={(imageIndex) =>
+                      setSelectedProject({ projectIndex: i, imageIndex })
+                    }
                   />
                 </div>
                 <div className="sm:col-span-5">
@@ -60,6 +73,45 @@ export function Projects() {
           </li>
         ))}
       </ol>
+
+      {/* Ver Mais / Ver Menos Button */}
+      {projects.length > ITEMS_PER_PAGE && (
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={() => {
+              if (hasMore) {
+                setDisplayCount((prev) => prev + ITEMS_PER_PAGE)
+              } else {
+                setDisplayCount(ITEMS_PER_PAGE)
+              }
+            }}
+            className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+          >
+            {hasMore ? (
+              <>
+                Ver mais
+                <ChevronDown className="size-4" aria-hidden="true" />
+              </>
+            ) : (
+              <>
+                Ver menos
+                <ChevronUp className="size-4" aria-hidden="true" />
+              </>
+            )}
+          </button>
+        </div>
+      )}
+
+      {/* Image Modal */}
+      {selectedProject && (
+        <ProjectImageModal
+          images={projects[selectedProject.projectIndex].images}
+          title={projects[selectedProject.projectIndex].title}
+          initialIndex={selectedProject.imageIndex}
+          isOpen={true}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   )
 }

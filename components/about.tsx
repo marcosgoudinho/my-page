@@ -1,25 +1,12 @@
-import Image from "next/image"
 import { Reveal } from "@/components/reveal"
+import { ActivityGallery } from "@/components/activity-gallery"
 import { profile } from "@/lib/portfolio-data"
 
 export function About() {
   return (
-    <section id="about" aria-label="About me" className="scroll-mt-24 lg:scroll-mt-24">
-      <SectionHeading>About</SectionHeading>
+    <section id="about" aria-label="About me" className="scroll-mt-24">
+      {/* Bio Text */}
       <Reveal>
-        <div className="mb-8 flex items-center gap-5">
-          <Image
-            src="/profile.png"
-            alt={`Portrait of ${profile.name}`}
-            width={80}
-            height={80}
-            className="size-20 rounded-full object-cover ring-2 ring-border"
-          />
-          <div>
-            <p className="font-medium text-foreground">{profile.name}</p>
-            <p className="text-sm text-muted-foreground">{profile.title}</p>
-          </div>
-        </div>
         <div className="space-y-4 leading-relaxed text-muted-foreground">
           <p>
             {"I'm a full-stack developer who loves turning complex problems into simple, elegant products. My work lives at the intersection of thoughtful design and solid engineering — building interfaces that feel effortless and systems that scale."}
@@ -35,20 +22,12 @@ export function About() {
           </p>
         </div>
       </Reveal>
+
+      {/* Activity Gallery */}
+      <div className="mt-12">
+        <ActivityGallery photos={profile.activityPhotos} />
+      </div>
     </section>
   )
 }
 
-export function SectionHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      {/* Sticky mobile label */}
-      <div className="sticky top-0 z-20 -mx-6 mb-4 bg-background/80 px-6 py-4 backdrop-blur lg:hidden">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">{children}</h2>
-      </div>
-      <h2 className="sr-only lg:not-sr-only lg:mb-8 lg:text-sm lg:font-bold lg:uppercase lg:tracking-widest lg:text-foreground">
-        {children}
-      </h2>
-    </>
-  )
-}

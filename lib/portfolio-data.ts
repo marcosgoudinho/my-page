@@ -12,32 +12,32 @@ export const profile = {
   },
   activityPhotos: [
     {
-      src: "/activity-1.png",
+      src: "/activity-1.jpeg",
       alt: "Presenting at tech conference",
       caption: "Speaking at React Summit 2024",
     },
     {
-      src: "/activity-2.png",
+      src: "/activity-2.jpeg",
       alt: "Team at tech event",
       caption: "Networking at Web Dev Conference",
     },
     {
-      src: "/activity-3.png",
+      src: "/activity-3.jpeg",
       alt: "Workshop teaching session",
       caption: "Teaching at JavaScript Meetup",
     },
     {
-      src: "/activity-4.png",
+      src: "/activity-4.jpeg",
       alt: "Professional photo at event",
       caption: "Tech Conference Networking",
     },
     {
-      src: "/activity-5.png",
+      src: "/activity-5.jpeg",
       alt: "Team collaboration",
       caption: "Team Building Activity",
     },
     {
-      src: "/activity-6.png",
+      src: "/activity-6.jpeg",
       alt: "Award recognition",
       caption: "Developer Excellence Award",
     },
@@ -94,32 +94,14 @@ export const skills = [
 
 export const projects = [
   {
-    title: "Atlas Analytics",
+    title: "Marketplace System",
     description:
       "A real-time analytics dashboard for product teams, with custom event tracking, funnel analysis, and shareable reports. Handles millions of events per day.",
     images: ["/project-analytics.png", "/project-commerce.png", "/project-cadence.png"],
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Redis"],
+    tags: ["Angular", "TypeScript", "Node.js", "Express.js", "JWT", "Multer", "PostgreSQL", "Docker Compose", "GitHub Actions"],
     url: "https://example.com",
-    repo: "https://github.com",
-  },
-  {
-    title: "Lumen Commerce",
-    description:
-      "Headless e-commerce storefront with a custom CMS, Stripe checkout, and sub-second page loads powered by edge rendering and smart caching.",
-    images: ["/project-commerce.png", "/project-analytics.png"],
-    tags: ["React", "Node.js", "Stripe", "Tailwind CSS"],
-    url: "https://example.com",
-    repo: "https://github.com",
-  },
-  {
-    title: "Cadence",
-    description:
-      "An open-source team retrospective tool with live collaboration, anonymous voting, and timeboxed sessions. Built with WebSockets for real-time sync.",
-    images: ["/project-cadence.png", "/project-analytics.png", "/project-commerce.png"],
-    tags: ["Vue.js", "WebSockets", "Go", "Docker"],
-    url: "https://example.com",
-    repo: "https://github.com",
-  },
+    repo: "https://github.com/marcosgoudinho/marketplace-system",
+  }
 ]
 
 export const education = [
@@ -127,9 +109,18 @@ export const education = [
     startDate: "2024-07-01",
     endDate: "2026-07-04",
     degree: "Fluency in English",
-    school: "Rockfeller English Academy",
+    school: "Rockfeller Language Center",
     description:
       "Focused on achieving fluency in English through intensive courses and immersive language experiences.",
     certificate: "/certificates/rockfeller-english.png",
+  },
+  {
+    startDate: "2023-09-29",
+    endDate: "2024-04-19",
+    degree: "Innovation Analyst",
+    school: "SATC - Charitable Association of the Coal Industry of Santa Catarina",
+    description:
+      "Focused on developing skills in innovation analysis through practical projects and coursework.",
+    certificate: "/certificates/innovation-analyst.png",
   }
 ]

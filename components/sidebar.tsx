@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { MapPin } from "lucide-react"
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/brand-icons"
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/brand-icons"
 import { profile, navItems } from "@/lib/portfolio-data"
 import { cn } from "@/lib/utils"
 
@@ -33,7 +33,7 @@ export function Sidebar() {
   const socials = [
     { icon: GithubIcon, href: profile.socials.github, label: "GitHub" },
     { icon: LinkedinIcon, href: profile.socials.linkedin, label: "LinkedIn" },
-    { icon: TwitterIcon, href: profile.socials.twitter, label: "Twitter" },
+    { icon: WhatsappIcon, href: profile.socials.whatsapp, label: "WhatsApp" },
   ]
 
   return (

@@ -8,7 +8,7 @@ export const profile = {
     github: "https://github.com/marcosgoudinho",
     linkedin: "https://www.linkedin.com/in/marcos-goudinho-50631b266",
     instagram: "https://www.instagram.com/marcos.goudinho?igsh=Mmh0azJxeXF6YmVl&utm_source=qr",
-    whatsapp: "https://wa.me/qr/UP36PTWU2XBCC1",
+    whatsapp: "https://wa.me/5548998401212",
   },
   activityPhotos: [
     {

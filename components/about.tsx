@@ -9,16 +9,16 @@ export function About() {
       <Reveal>
         <div className="space-y-4 leading-relaxed text-muted-foreground">
           <p>
-            {"I'm a full-stack developer who loves turning complex problems into simple, elegant products. My work lives at the intersection of thoughtful design and solid engineering — building interfaces that feel effortless and systems that scale."}
+            {"I'm a Full Stack Software Developer passionate about turning ideas into products that create real impact. I currently work on the development and evolution of enterprise systems, contributing to new features and exploring how Artificial Intelligence can be integrated to make business processes smarter and more efficient."}
           </p>
           <p>
-            I started coding in high school, tinkering with small websites for local businesses. That curiosity grew into a career spanning{" "}
-            <span className="font-medium text-foreground">startups</span>,{" "}
-            <span className="font-medium text-foreground">agencies</span>, and{" "}
-            <span className="font-medium text-foreground">product teams</span>, where I&apos;ve shipped everything from marketing sites to real-time, data-heavy platforms.
+            {"Over the past few months, I've been deeply focused on studying AI integrations, exploring how large language models can be embedded into software products to solve real-world problems and improve user experiences."}
           </p>
           <p>
-            Today I focus on the modern web stack — TypeScript, React, Next.js, and Node.js — with a strong emphasis on accessibility, performance, and developer experience. When I&apos;m not coding, you&apos;ll find me hiking, reading sci-fi, or contributing to open source.
+            {"Beyond my professional work, I'm also building my own mobile application for psychology clinics, combining technology and product thinking to simplify daily operations for mental health professionals."}
+          </p>
+          <p>
+            {"My goal is to build an international career working remotely with teams that value software quality, innovation, and continuous learning. I believe great products are created by combining solid engineering, curiosity, and a constant focus on solving real problems in the simplest and most effective way."}
           </p>
         </div>
       </Reveal>

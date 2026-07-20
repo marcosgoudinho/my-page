@@ -11,7 +11,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Marcos Goudinho — Full-Stack Developer',
+  title: 'Marcos Goudinho',
   description:
     'Full-stack developer building accessible, performant web applications. Portfolio, experience, projects, and tech stack.',
   generator: 'v0.app',

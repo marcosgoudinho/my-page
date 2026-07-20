@@ -101,6 +101,15 @@ export const projects = [
     tags: ["Angular", "TypeScript", "Node.js", "Express.js", "JWT", "Multer", "PostgreSQL", "Docker Compose", "GitHub Actions"],
     url: "https://example.com",
     repo: "https://github.com/marcosgoudinho/marketplace-system",
+  },
+  {
+    title: "My Page",
+    description:
+      "A personal portfolio website built with Next.js, showcasing my projects, experience, and skills. It features a responsive design, smooth animations, and optimized performance.",
+    images: ["/project-analytics.png", "/project-commerce.png", "/project-cadence.png"],
+    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Vercel", "GitHub Actions"],
+    url: "https://www.marcosgoudinho.dev.br/",
+    repo: "https://github.com/marcosgoudinho/my-page.git",
   }
 ]
 

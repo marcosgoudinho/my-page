@@ -2,15 +2,20 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Reveal } from '@/components/reveal'
-import { profile, skills, experiences, projects } from '@/lib/portfolio-data'
+import { getPortfolioData } from '@/lib/portfolio-data'
+import { useLanguage } from '@/lib/language-context'
 
 interface TerminalLine {
   type: 'command' | 'output'
   content: string
 }
 
-const COMMANDS = {
-  help: () => `Available commands:
+export function Terminal() {
+  const { language } = useLanguage()
+  const { profile, skills, projects } = getPortfolioData(language)
+
+  const COMMANDS = {
+    help: () => `Available commands:
   about     - Show about information
   whoami    - Display who I am
   skills    - List all skills
@@ -20,46 +25,45 @@ const COMMANDS = {
   clear     - Clear terminal
   help      - Show this help message`,
 
-  about: () => `${profile.name} - ${profile.title}
+    about: () => `${profile.name} - ${profile.title}
 ${profile.tagline}
 Location: ${profile.location}`,
 
-  whoami: () => `$ whoami
+    whoami: () => `$ whoami
 ${profile.name}
 ${profile.title}`,
 
-  skills: () => {
-    const skillsList = skills
-      .map(({ category, items }) => `\n${category}:\n  ${items.join(', ')}`)
-      .join('')
-    return skillsList
-  },
+    skills: () => {
+      const skillsList = skills
+        .map(({ category, items }) => `\n${category}:\n  ${items.join(', ')}`)
+        .join('')
+      return skillsList
+    },
 
-  projects: () => {
-    const projectsList = projects
-      .map((p) => `\n→ ${p.title}\n  ${p.description}`)
-      .join('\n')
-    return projectsList
-  },
+    projects: () => {
+      const projectsList = projects
+        .map((p) => `\n> ${p.title}\n  ${p.description}`)
+        .join('\n')
+      return projectsList
+    },
 
-  contact: () => `Email: ${profile.email}
+    contact: () => `Email: ${profile.email}
 GitHub: ${profile.socials.github}
 LinkedIn: ${profile.socials.linkedin}
 Instagram: ${profile.socials.instagram}
 WhatsApp: ${profile.socials.whatsapp}`,
 
-  secret: () => `🔍 You found a hidden secret!
+    secret: () => `Found a hidden secret!
   
 Try this keyboard combination to unlock Developer Mode:
-↑ ↑ ↓ ↓ ← → ← → B A
+Up Up Down Down Left Right Left Right B A
 
 (Classic Konami Code - use arrow keys + B + A)
-Good luck! 🚀`,
+Good luck!`,
 
-  clear: () => 'CLEAR_TERMINAL',
-}
+    clear: () => 'CLEAR_TERMINAL',
+  }
 
-export function Terminal() {
   const [lines, setLines] = useState<TerminalLine[]>([
     { type: 'output', content: 'Welcome to my portfolio terminal!' },
     { type: 'output', content: 'Type "help" to see available commands.' },
@@ -154,14 +158,11 @@ export function Terminal() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Type a command..."
-                className="flex-1 bg-transparent outline-none text-foreground placeholder:text-muted-foreground"
+                className="flex-1 bg-transparent font-mono text-sm outline-none placeholder:text-muted-foreground"
+                autoFocus
               />
             </div>
           </div>
-
-          <p className="text-xs text-muted-foreground">
-            💡 Try typing <code className="bg-muted px-1 py-0.5 rounded">help</code> to explore all commands
-          </p>
         </div>
       </Reveal>
     </section>

@@ -6,7 +6,8 @@ import { GithubIcon } from "@/components/brand-icons"
 import { Reveal } from "@/components/reveal"
 import { ProjectCarousel } from "@/components/project-carousel"
 import { ProjectImageModal } from "@/components/project-image-modal"
-import { projects } from "@/lib/portfolio-data"
+import { getPortfolioData } from "@/lib/portfolio-data"
+import { useLanguage } from "@/lib/language-context"
 
 const ITEMS_PER_PAGE = 4
 
@@ -16,6 +17,8 @@ export function Projects() {
     imageIndex: number
   } | null>(null)
   const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
+  const { language } = useLanguage()
+  const { projects, ui } = getPortfolioData(language)
 
   const displayedProjects = projects.slice(0, displayCount)
   const hasMore = projects.length > displayCount
@@ -65,7 +68,7 @@ export function Projects() {
                     className="mt-4 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     <GithubIcon className="size-4" aria-hidden="true" />
-                    Source code
+                    {ui.sourceCode}
                   </a>
                 </div>
               </div>
@@ -89,12 +92,12 @@ export function Projects() {
           >
             {hasMore ? (
               <>
-                Ver mais
+                {ui.viewMore}
                 <ChevronDown className="size-4" aria-hidden="true" />
               </>
             ) : (
               <>
-                Ver menos
+                {ui.viewLess}
                 <ChevronUp className="size-4" aria-hidden="true" />
               </>
             )}

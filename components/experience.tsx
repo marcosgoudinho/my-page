@@ -3,12 +3,15 @@
 import { useState } from "react"
 import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-import { experiences } from "@/lib/portfolio-data"
+import { getPortfolioData } from "@/lib/portfolio-data"
+import { useLanguage } from "@/lib/language-context"
 
 const ITEMS_PER_PAGE = 4
 
 export function Experience() {
   const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
+  const { language } = useLanguage()
+  const { experiences, ui } = getPortfolioData(language)
 
   const displayedExperiences = experiences.slice(0, displayCount)
   const hasMore = experiences.length > displayCount
@@ -30,7 +33,7 @@ export function Experience() {
                 </p>
                 <div className="sm:col-span-6">
                   <h3 className="flex items-center font-medium text-foreground">
-                    {job.role} Â· {job.company}
+                    {job.role} · {job.company}
                     <ArrowUpRight className="ml-1 size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{job.description}</p>
@@ -65,12 +68,12 @@ export function Experience() {
           >
             {hasMore ? (
               <>
-                Ver mais
+                {ui.viewMore}
                 <ChevronDown className="size-4" aria-hidden="true" />
               </>
             ) : (
               <>
-                Ver menos
+                {ui.viewLess}
                 <ChevronUp className="size-4" aria-hidden="true" />
               </>
             )}

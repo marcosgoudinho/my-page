@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { X, ChevronDown, ChevronUp } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-import { education } from "@/lib/portfolio-data"
+import { getPortfolioData } from "@/lib/portfolio-data"
+import { useLanguage } from "@/lib/language-context"
 
 function formatDateRange(startDate: string, endDate: string): string {
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -26,6 +27,8 @@ const ITEMS_PER_PAGE = 4
 export function Education() {
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null)
   const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
+  const { language } = useLanguage()
+  const { education, ui } = getPortfolioData(language)
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -63,7 +66,7 @@ export function Education() {
                       className="mt-3 inline-flex items-center gap-2 rounded-md bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
                       aria-label={`View ${item.degree} certificate`}
                     >
-                      📜 View Certificate
+                      {ui.viewCertificate}
                     </button>
                   )}
                 </div>
@@ -88,12 +91,12 @@ export function Education() {
           >
             {hasMore ? (
               <>
-                Ver mais
+                {ui.viewMore}
                 <ChevronDown className="size-4" aria-hidden="true" />
               </>
             ) : (
               <>
-                Ver menos
+                {ui.viewLess}
                 <ChevronUp className="size-4" aria-hidden="true" />
               </>
             )}
@@ -136,7 +139,7 @@ export function Education() {
             {/* Footer */}
             <div className="border-t border-border px-6 py-3 text-center">
               <p className="text-xs text-muted-foreground">
-                Click outside to close or press Escape
+                {ui.clickOutsideToClose}
               </p>
             </div>
           </div>

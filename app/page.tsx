@@ -9,9 +9,13 @@ import { Projects } from "@/components/projects"
 import { Education } from "@/components/education"
 import { Terminal } from "@/components/terminal"
 import { Contact } from "@/components/contact"
-import { profile } from "@/lib/portfolio-data"
+import { getPortfolioData } from "@/lib/portfolio-data"
+import { useLanguage } from "@/lib/language-context"
 
 export default function Page() {
+  const { language } = useLanguage()
+  const { profile, ui } = getPortfolioData(language)
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -31,7 +35,7 @@ export default function Page() {
         </div>
         <footer className="mt-20 pb-12 text-sm leading-relaxed text-muted-foreground">
           <p>
-            Designed and built by {profile.name}. Built with Next.js and Tailwind CSS, deployed on Vercel.
+            {ui.designedBy(profile.name)}
           </p>
         </footer>
       </main>

@@ -155,7 +155,6 @@ export function Terminal() {
                 onKeyDown={handleKeyDown}
                 placeholder="Type a command..."
                 className="flex-1 bg-transparent outline-none text-foreground placeholder:text-muted-foreground"
-                autoFocus
               />
             </div>
           </div>

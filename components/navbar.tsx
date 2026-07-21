@@ -4,10 +4,14 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon } from "@/components/brand-icons"
-import { profile, navItems } from "@/lib/portfolio-data"
+import { getPortfolioData } from "@/lib/portfolio-data"
+import { useLanguage } from "@/lib/language-context"
+import { LanguageSelect } from "@/components/language-select"
 
 export function Navbar() {
   const [activeSection, setActiveSection] = useState("about")
+  const { language } = useLanguage()
+  const { profile, navItems, terminalLabel } = getPortfolioData(language)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +41,7 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-sm">
-      <div className="mx-auto max-w-4xl px-6 py-4 md:px-12 lg:px-16">
+      <div className="mx-auto max-w-7xl px-6 py-4 md:px-12 lg:px-16">
         <div className="flex items-center justify-between">
           {/* Left: Name and Title */}
           <div className="flex items-center gap-4">
@@ -49,7 +53,7 @@ export function Navbar() {
               className="rounded-full object-cover"
             />
             <div className="hidden sm:block">
-              <h1 className="text-sm font-semibold text-foreground">{profile.name}</h1>
+              <h1 className="text-sm font-semibold text-foreground whitespace-nowrap">{profile.name}</h1>
               <p className="text-xs text-muted-foreground">{profile.title}</p>
             </div>
           </div>
@@ -77,12 +81,13 @@ export function Navbar() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Terminal
+              {terminalLabel}
             </Link>
           </div>
 
           {/* Right: Social Links */}
           <div className="flex items-center gap-4">
+            <LanguageSelect />
             {socials.map((social) => {
               const Icon = social.icon
               return (

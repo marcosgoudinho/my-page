@@ -1,7 +1,13 @@
+"use client"
+
 import { Reveal } from "@/components/reveal"
-import { skills } from "@/lib/portfolio-data"
+import { getPortfolioData } from "@/lib/portfolio-data"
+import { useLanguage } from "@/lib/language-context"
 
 export function Skills() {
+  const { language } = useLanguage()
+  const { skills } = getPortfolioData(language)
+
   return (
     <section id="skills" aria-label="Skills and technologies" className="scroll-mt-24">
       <div className="grid gap-4 sm:grid-cols-2">

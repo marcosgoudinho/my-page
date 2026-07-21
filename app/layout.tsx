@@ -50,8 +50,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} bg-background`}
     >
       <body className="font-sans antialiased">
-        <RootProviders />
-        {children}
+        <RootProviders>{children}</RootProviders>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

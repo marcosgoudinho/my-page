@@ -13,7 +13,7 @@ export function LanguageSelect() {
       className="rounded-md border border-border bg-background px-2 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
     >
       <option value="en">English</option>
-      <option value="pt">Português (BR)</option>
+      <option value="pt">PortuguÃªs (BR)</option>
     </select>
   )
 }

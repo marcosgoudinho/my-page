@@ -33,7 +33,7 @@ export function Experience() {
                 </p>
                 <div className="sm:col-span-6">
                   <h3 className="flex items-center font-medium text-foreground">
-                    {job.role} · {job.company}
+                    {job.role} Â· {job.company}
                     <ArrowUpRight className="ml-1 size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{job.description}</p>

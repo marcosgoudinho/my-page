@@ -7,11 +7,13 @@ import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon } from "@/compone
 import { getPortfolioData } from "@/lib/portfolio-data"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageSelect } from "@/components/language-select"
+import { ImageLightbox } from "@/components/image-lightbox"
 
 export function Navbar() {
   const [activeSection, setActiveSection] = useState("about")
+  const [isProfileOpen, setIsProfileOpen] = useState(false)
   const { language } = useLanguage()
-  const { profile, navItems, terminalLabel } = getPortfolioData(language)
+  const { profile, navItems, terminalLabel, ui } = getPortfolioData(language)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,13 +47,20 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Left: Name and Title */}
           <div className="flex items-center gap-4">
-            <Image
-              src="/profile.png"
-              alt={profile.name}
-              width={40}
-              height={40}
-              className="rounded-full object-cover"
-            />
+            <button
+              type="button"
+              onClick={() => setIsProfileOpen(true)}
+              aria-label={profile.name}
+              className="rounded-full ring-offset-2 ring-offset-background transition-all hover:ring-2 hover:ring-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              <Image
+                src="/profile.png"
+                alt={profile.name}
+                width={40}
+                height={40}
+                className="size-10 rounded-full object-cover"
+              />
+            </button>
             <div className="hidden sm:block">
               <h1 className="text-sm font-semibold text-foreground whitespace-nowrap">{profile.name}</h1>
               <p className="text-xs text-muted-foreground">{profile.title}</p>
@@ -106,6 +115,13 @@ export function Navbar() {
           </div>
         </div>
       </div>
+
+      <ImageLightbox
+        images={[{ src: "/profile.png", alt: profile.name, caption: profile.name }]}
+        isOpen={isProfileOpen}
+        onClose={() => setIsProfileOpen(false)}
+        hint={ui.clickOutsideToClose}
+      />
     </nav>
   )
 }

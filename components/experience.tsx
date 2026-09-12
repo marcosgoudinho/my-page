@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { SectionHeading } from "@/components/section-heading"
 import { getPortfolioData } from "@/lib/portfolio-data"
 import { useLanguage } from "@/lib/language-context"
 
@@ -11,13 +12,14 @@ const ITEMS_PER_PAGE = 4
 export function Experience() {
   const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
   const { language } = useLanguage()
-  const { experiences, ui } = getPortfolioData(language)
+  const { experiences, ui, sectionTitles } = getPortfolioData(language)
 
   const displayedExperiences = experiences.slice(0, displayCount)
   const hasMore = experiences.length > displayCount
 
   return (
     <section id="experience" aria-label="Work experience" className="scroll-mt-24">
+      <SectionHeading>{sectionTitles.experience}</SectionHeading>
       <ol className="group/list space-y-3">
         {displayedExperiences.map((job, i) => (
           <li key={job.role}>

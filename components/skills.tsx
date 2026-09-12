@@ -1,15 +1,17 @@
 "use client"
 
 import { Reveal } from "@/components/reveal"
+import { SectionHeading } from "@/components/section-heading"
 import { getPortfolioData } from "@/lib/portfolio-data"
 import { useLanguage } from "@/lib/language-context"
 
 export function Skills() {
   const { language } = useLanguage()
-  const { skills } = getPortfolioData(language)
+  const { skills, sectionTitles } = getPortfolioData(language)
 
   return (
     <section id="skills" aria-label="Skills and technologies" className="scroll-mt-24">
+      <SectionHeading>{sectionTitles.skills}</SectionHeading>
       <div className="grid gap-4 sm:grid-cols-2">
         {skills.map((group, i) => (
           <Reveal key={group.category} delay={i * 80}>

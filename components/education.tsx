@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { X, ChevronDown, ChevronUp } from "lucide-react"
+import { useState } from "react"
+import { ChevronDown, ChevronUp } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { SectionHeading } from "@/components/section-heading"
+import { ImageLightbox } from "@/components/image-lightbox"
 import { getPortfolioData } from "@/lib/portfolio-data"
 import { useLanguage } from "@/lib/language-context"
 
@@ -28,26 +29,15 @@ export function Education() {
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null)
   const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
   const { language } = useLanguage()
-  const { education, ui } = getPortfolioData(language)
+  const { education, ui, sectionTitles } = getPortfolioData(language)
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSelectedCertificate(null)
-      }
-    }
-
-    if (selectedCertificate) {
-      window.addEventListener("keydown", handleKeyDown)
-      return () => window.removeEventListener("keydown", handleKeyDown)
-    }
-  }, [selectedCertificate])
 
   const displayedEducation = education.slice(0, displayCount)
   const hasMore = education.length > displayCount
 
   return (
     <section id="education" aria-label="Education and certifications" className="scroll-mt-24">
+      <SectionHeading>{sectionTitles.education}</SectionHeading>
       <ol className="space-y-3">
         {displayedEducation.map((item, i) => (
           <li key={item.degree}>
@@ -104,47 +94,12 @@ export function Education() {
         </div>
       )}
 
-      {/* Certificate Modal */}
-      {selectedCertificate && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
-          onClick={() => setSelectedCertificate(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="relative max-h-[90vh] max-w-2xl overflow-auto rounded-lg bg-card shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedCertificate(null)}
-              className="sticky top-4 right-4 float-right z-10 rounded-full bg-background p-2 text-muted-foreground transition-colors hover:text-foreground"
-              aria-label="Close certificate"
-            >
-              <X className="size-5" aria-hidden="true" />
-            </button>
-
-            {/* Certificate Image */}
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src={selectedCertificate}
-                alt="Certificate"
-                fill
-                className="object-contain p-6"
-                priority
-              />
-            </div>
-
-            {/* Footer */}
-            <div className="border-t border-border px-6 py-3 text-center">
-              <p className="text-xs text-muted-foreground">
-                {ui.clickOutsideToClose}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+      <ImageLightbox
+        images={[{ src: selectedCertificate ?? "", alt: "Certificate" }]}
+        isOpen={Boolean(selectedCertificate)}
+        onClose={() => setSelectedCertificate(null)}
+        hint={ui.clickOutsideToClose}
+      />
     </section>
   )
 }

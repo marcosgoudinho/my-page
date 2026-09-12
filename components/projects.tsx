@@ -4,6 +4,7 @@ import { useState, useMemo } from "react"
 import { ArrowUpRight, ChevronDown, ChevronUp, Star } from "lucide-react"
 import { GithubIcon } from "@/components/brand-icons"
 import { Reveal } from "@/components/reveal"
+import { SectionHeading } from "@/components/section-heading"
 import { ProjectCarousel } from "@/components/project-carousel"
 import { ProjectImageModal } from "@/components/project-image-modal"
 import { getPortfolioData } from "@/lib/portfolio-data"
@@ -30,46 +31,46 @@ export function Projects() {
   } | null>(null)
   const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
   const { language } = useLanguage()
-  const { projects, ui } = getPortfolioData(language)
+  const { projects, ui, sectionTitles } = getPortfolioData(language)
   const repos = useGithubRepos()
 
+  /**
+   * Only repositories tagged with the "portfolio" topic on GitHub are listed.
+   * When a listed repo also exists in portfolio-data.ts, that entry wins for the
+   * copy and screenshots, since it is translated and hand-written.
+   */
   const allProjects = useMemo<DisplayProject[]>(() => {
-    const reposByKey = new Map(repos.map((repo) => [repoKey(repo.url), repo]))
+    const curatedByKey = new Map(projects.map((project) => [repoKey(project.repo), project]))
 
-    // Curated projects keep their translated copy and screenshots,
-    // and pick up live star counts from GitHub.
-    const curated: DisplayProject[] = projects.map((project) => {
-      const repo = reposByKey.get(repoKey(project.repo) ?? "")
-      return {
-        title: project.title,
-        description: project.description,
-        images: [...project.images],
-        tags: [...project.tags],
-        url: project.url,
-        repo: project.repo,
-        stars: repo?.stars ?? 0,
-      }
-    })
+    return repos
+      .filter((repo) => repo.topics.includes(FEATURED_TOPIC))
+      .map((repo) => {
+        const curated = curatedByKey.get(repoKey(repo.url))
 
-    const curatedKeys = new Set(projects.map((project) => repoKey(project.repo)))
+        if (curated) {
+          return {
+            title: curated.title,
+            description: curated.description,
+            images: [...curated.images],
+            tags: [...curated.tags],
+            url: curated.url,
+            repo: curated.repo,
+            stars: repo.stars,
+          }
+        }
 
-    // Any repo tagged with the "portfolio" topic on GitHub joins the list
-    // automatically, without touching the code.
-    const extras: DisplayProject[] = repos
-      .filter((repo) => repo.topics.includes(FEATURED_TOPIC) && !curatedKeys.has(repoKey(repo.url)))
-      .map((repo) => ({
-        title: repo.name,
-        description: repo.description ?? "",
-        images: [repoPreviewImage(repo.fullName)],
-        tags: [repo.language, ...repo.topics.filter((topic) => topic !== FEATURED_TOPIC)]
-          .filter((tag): tag is string => Boolean(tag))
-          .slice(0, 6),
-        url: repo.homepage || repo.url,
-        repo: repo.url,
-        stars: repo.stars,
-      }))
-
-    return [...curated, ...extras]
+        return {
+          title: repo.name,
+          description: repo.description ?? "",
+          images: [repoPreviewImage(repo.fullName)],
+          tags: [repo.language, ...repo.topics.filter((topic) => topic !== FEATURED_TOPIC)]
+            .filter((tag): tag is string => Boolean(tag))
+            .slice(0, 6),
+          url: repo.homepage || repo.url,
+          repo: repo.url,
+          stars: repo.stars,
+        }
+      })
   }, [projects, repos])
 
   const displayedProjects = allProjects.slice(0, displayCount)
@@ -77,6 +78,11 @@ export function Projects() {
 
   return (
     <section id="projects" aria-label="Selected projects" className="scroll-mt-24">
+      <SectionHeading>{sectionTitles.projects}</SectionHeading>
+
+      {allProjects.length === 0 ? (
+        <p className="text-sm leading-relaxed text-muted-foreground">{ui.noPortfolioRepos}</p>
+      ) : (
       <ol className="group/list space-y-3">
         {displayedProjects.map((project, i) => (
           <li key={project.repo || project.title}>
@@ -136,6 +142,7 @@ export function Projects() {
           </li>
         ))}
       </ol>
+      )}
 
       {/* Ver Mais / Ver Menos Button */}
       {allProjects.length > ITEMS_PER_PAGE && (

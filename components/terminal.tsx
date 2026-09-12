@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Reveal } from '@/components/reveal'
+import { SectionHeading } from '@/components/section-heading'
 import { getPortfolioData } from '@/lib/portfolio-data'
 import { useLanguage } from '@/lib/language-context'
 
@@ -12,7 +13,7 @@ interface TerminalLine {
 
 export function Terminal() {
   const { language } = useLanguage()
-  const { profile, skills, projects } = getPortfolioData(language)
+  const { profile, skills, projects, sectionTitles } = getPortfolioData(language)
 
   const COMMANDS = {
     help: () => `Available commands:
@@ -134,6 +135,7 @@ Good luck!`,
 
   return (
     <section id="terminal" aria-label="Interactive terminal" className="scroll-mt-24">
+      <SectionHeading>{sectionTitles.terminal}</SectionHeading>
       <Reveal>
         <div className="space-y-6">
           <div className="overflow-hidden rounded-lg border border-border bg-input p-4">

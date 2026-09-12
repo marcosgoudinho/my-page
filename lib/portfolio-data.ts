@@ -5,7 +5,7 @@ const profileBase = {
   email: "marcos.goudinho@outlook.com",
   socials: {
     github: "https://github.com/marcosgoudinho",
-    linkedin: "https://www.linkedin.com/in/marcos-goudinho-50631b266",
+    linkedin: "https://www.linkedin.com/in/marcosgoudinho/",
     instagram: "https://www.instagram.com/marcos.goudinho?igsh=Mmh0azJxeXF6YmVl&utm_source=qr",
     whatsapp: "https://wa.me/5548998401212",
   },
@@ -22,8 +22,8 @@ const profileBase = {
 const translations = {
   en: {
     profile: {
-      title: "Full-Stack Developer",
-      tagline: "I build accessible, performant web applications from front to back.",
+      title: "Fullstack Developer | LLMs, RAG & AI Agents",
+      tagline: "I work at the intersection of software engineering and AI: building agents, connecting models to real systems and tools, and turning AI into useful product features.",
       location: "Criciuma, SC",
     },
     navItems: [
@@ -31,6 +31,7 @@ const translations = {
       { id: "experience", label: "Experience" },
       { id: "skills", label: "Skills" },
       { id: "projects", label: "Projects" },
+      { id: "awards", label: "Awards" },
       { id: "education", label: "Courses" },
     ],
     terminalLabel: "Terminal",
@@ -44,6 +45,7 @@ const translations = {
       galleryHint: "Use the arrow keys to navigate - press Escape to close",
       noPortfolioRepos: "No repository is tagged with the \"portfolio\" topic on GitHub yet.",
       viewCertificate: "View Certificate",
+      verifyCredential: "Verify credential",
       closeCertificate: "Close certificate",
       clickOutsideToClose: "Click outside to close or press Escape",
       contactTitle: "Let's build something together",
@@ -54,8 +56,8 @@ const translations = {
         `Designed and built by ${name}. Built with Next.js and Tailwind CSS, deployed on Vercel.`,
     },
     about: [
-      "I'm a Full Stack Software Developer passionate about turning ideas into products that create real impact. I currently work on the development and evolution of enterprise systems, contributing to new features and exploring how Artificial Intelligence can be integrated to make business processes smarter and more efficient.",
-      "Over the past few months, I've been deeply focused on studying AI integrations, exploring how large language models can be embedded into software products to solve real-world problems and improve user experiences.",
+      "I'm a Fullstack Developer and a Software Engineering student. I currently work on the development and evolution of an ERP, building web and mobile applications, backends, APIs, automation and integrations between systems.",
+      "I also work on applying AI to the ERP, developing agents and solutions with LLMs, RAG, tool calling, LangGraph and vector databases. My main interest lies exactly at the intersection between software engineering and AI: building agents, connecting models to real systems and tools, and turning AI into useful features for products.",
       "Beyond my professional work, I'm also building my own mobile application for psychology clinics, combining technology and product thinking to simplify daily operations for mental health professionals.",
       "My goal is to build an international career working remotely with teams that value software quality, innovation, and continuous learning. I believe great products are created by combining solid engineering, curiosity, and a constant focus on solving real problems in the simplest and most effective way.",
     ],
@@ -65,25 +67,36 @@ const translations = {
         role: "Junior Full-Stack Developer",
         company: "Agrosys",
         url: "https://www.agrosys.com.br/",
-        description:
-          "Today, I work in the innovation team at Agrosys, where we focus on researching and implementing new technologies and features for the company's ERP system. Our current main focus is integrating Artificial Intelligence (AI) into the ERP. I also develop and maintain ERP screens and business features, in addition to maintaining the company's Cordova-based mobile applications and managing their publication and updates on the Google Play Store and Apple App Store.",
-        stack: ["Progress ABL", "AngularJS", "jQuery", "JavaScript", "PHP", "Cordova", "Docker", "AI Integration"],
+        description: [
+          "Development and evolution of ERP systems, including new features, bug fixing, process automation and application architecture evolution.",
+          "Web and mobile application development, working on the frontend with JavaScript, TypeScript, Angular, jQuery, HTML and CSS, and on the backend with Progress OpenEdge (ABL), PHP and Python.",
+          "Development and maintenance of mobile applications with AngularJS and Cordova, including publishing, updating and maintenance on the app stores.",
+          "Development of Artificial Intelligence solutions applied to the ERP, focused on LLMs, RAG and agentic systems, using LangGraph, tool calling, FastMCP, vector databases such as Weaviate and language model APIs.",
+          "Definition and evolution of agentic system architectures, working on the orchestration between specialized agents, tools, language models and internal systems.",
+          "Development of a VS Code extension to document and spread internal development standards, allowing AI tools such as GitHub Copilot to use that knowledge as context during development.",
+          "Development of a chatbot integrated into the ERP, using LLMs, tool calling and integration with internal tools and services for customer service and support.",
+          "Participation in the technical evaluation of candidates, reviewing code quality, architecture, implementation and development best practices.",
+        ],
+        stack: ["Progress ABL", "JavaScript", "TypeScript", "Angular", "AngularJS", "jQuery", "PHP", "Python", "Cordova", "LangGraph", "RAG", "Weaviate", "FastMCP"],
       },
       {
         period: "2025/1",
         role: "Full Stack Developer Intern",
         company: "Agrosys",
         url: "https://www.agrosys.com.br/",
-        description:
-          "During my internship at Agrosys, I worked on the development and maintenance of ERP features while building a strong foundation in software development. I gained hands-on experience with Progress OpenEdge ABL, JavaScript, jQuery, HTML, CSS, and Linux, contributing to real-world business applications and improving my understanding of enterprise software development, debugging, and system maintenance.",
-        stack: ["Progress ABL", "JavaScript", "jQuery", "HTML", "CSS", "Linux"],
+        description: [
+          "During my internship at Agrosys, I had the opportunity to learn and work with technologies such as jQuery, Progress OpenEdge, Angular and Apache Cordova.",
+          "I took part in the development and maintenance of systems, fixing bugs, implementing new features and handling the team's demands.",
+          "This experience allowed me to develop my technical skills, learn in practice how software development works in a professional environment, and grow in problem solving and teamwork.",
+        ],
+        stack: ["jQuery", "Progress OpenEdge", "Angular", "Apache Cordova", "HTML5", "CSS", "JavaScript"],
       },
     ],
     skills: [
-      { category: "Frontend", items: ["JavaScript", "AngularJS", "React", "Bootstrap"] },
-      { category: "Backend", items: ["Node.js", "Java", "Spring Boot", "Progress ABL", "REST APIs"] },
-      { category: "Database & Infra", items: ["PostgreSQL", "Docker", "Kubernetes", "Vercel", "Google Cloud Platform", "AWS"] },
-      { category: "Tools & Practices", items: ["Git", "CI/CD", "Playwright", "Figma", "Agile"] },
+      { category: "Frontend", items: ["TypeScript", "JavaScript", "Angular", "AngularJS", "jQuery", "HTML5", "CSS"] },
+      { category: "Backend", items: ["Java", "Python", "PHP", "Progress OpenEdge (ABL)", "SQL"] },
+      { category: "AI & LLM", items: ["LLMs", "RAG", "LangGraph", "LangChain", "AI Agents", "Tool Calling"] },
+      { category: "Mobile, Infra & Tools", items: ["Apache Cordova", "Docker", "Kubernetes", "Linux", "Git"] },
     ],
     projects: [
       {
@@ -105,7 +118,34 @@ const translations = {
         repo: "https://github.com/marcosgoudinho/my-page.git",
       },
     ],
+    awards: [
+      {
+        date: "2026-07-01",
+        title: "Innovation of the Month Award",
+        issuer: "Agrosys",
+        description:
+          "Recognized for the development of Agrosys' corporate chatbot, made available to clients as the first step of customer support. The solution uses RAG (Retrieval-Augmented Generation) to answer questions based on the company's knowledge base, helping to solve problems before a support ticket is opened.",
+      },
+    ],
     education: [
+      {
+        startDate: "2023-02-01",
+        endDate: "2026-12-31",
+        degree: "Bachelor's Degree in Software Engineering",
+        school: "SATC - Criciuma, SC",
+        description:
+          "Currently in the eighth and final semester, graduating in December 2026. The program covers software architecture, algorithms, databases, web and mobile development, and software engineering practices.",
+      },
+      {
+        startDate: "2026-08-03",
+        endDate: "2026-08-03",
+        degree: "Docker for Developers (with Docker Swarm and Kubernetes)",
+        school: "Udemy - Matheus Battisti (Hora de Codar)",
+        description:
+          "13.5-hour course covering containers, images, volumes, networks and Docker Compose, through to orchestration with Docker Swarm and Kubernetes.",
+        certificate: "/certificates/docker.png",
+        credentialUrl: "https://www.udemy.com/certificate/UC-bff059c8-db22-43fb-9631-b4433cc47c0a/",
+      },
       {
         startDate: "2024-07-01",
         endDate: "2026-07-04",
@@ -126,8 +166,8 @@ const translations = {
   },
   pt: {
     profile: {
-      title: "Desenvolvedor Full-Stack",
-      tagline: "Eu construo aplicacoes web acessiveis e performaticas, do front ao back.",
+      title: "Desenvolvedor Fullstack | LLMs, RAG & Agentes de IA",
+      tagline: "Atuo na intersecao entre engenharia de software e IA: criar agentes, conectar modelos a sistemas e ferramentas reais e transformar IA em funcionalidades uteis para produtos.",
       location: "Criciuma, SC",
     },
     navItems: [
@@ -135,6 +175,7 @@ const translations = {
       { id: "experience", label: "Experiencia" },
       { id: "skills", label: "Habilidades" },
       { id: "projects", label: "Projetos" },
+      { id: "awards", label: "Reconhecimentos" },
       { id: "education", label: "Cursos" },
     ],
     terminalLabel: "Terminal",
@@ -148,6 +189,7 @@ const translations = {
       galleryHint: "Use as setas para navegar - pressione Escape para fechar",
       noPortfolioRepos: "Nenhum repositorio esta marcado com a topic \"portfolio\" no GitHub ainda.",
       viewCertificate: "Ver Certificado",
+      verifyCredential: "Verificar credencial",
       closeCertificate: "Fechar certificado",
       clickOutsideToClose: "Clique fora para fechar ou pressione Esc",
       contactTitle: "Vamos construir algo juntos",
@@ -158,8 +200,8 @@ const translations = {
         `Projetado e desenvolvido por ${name}. Construido com Next.js e Tailwind CSS, hospedado na Vercel.`,
     },
     about: [
-      "Sou um Desenvolvedor de Software Full Stack apaixonado por transformar ideias em produtos que geram impacto real. Atualmente trabalho no desenvolvimento e evolucao de sistemas corporativos, contribuindo com novas funcionalidades e explorando como a Inteligencia Artificial pode ser integrada para tornar os processos de negocio mais inteligentes e eficientes.",
-      "Nos ultimos meses, tenho me dedicado profundamente ao estudo de integracoes de IA, explorando como grandes modelos de linguagem podem ser incorporados a produtos de software para resolver problemas reais e melhorar a experiencia do usuario.",
+      "Sou Desenvolvedor Fullstack e estudante de Engenharia de Software. Atualmente, atuo no desenvolvimento e evolucao de um ERP, trabalhando com aplicacoes web e mobile, backend, APIs, automacao e integracao entre sistemas.",
+      "Tambem trabalho na aplicacao de IA ao ERP, desenvolvendo agentes e solucoes com LLMs, RAG, tool calling, LangGraph e bancos vetoriais. Meu maior interesse esta justamente na intersecao entre engenharia de software e IA: criar agentes, conectar modelos a sistemas e ferramentas reais e transformar IA em funcionalidades uteis para produtos.",
       "Alem do meu trabalho profissional, tambem estou construindo meu proprio aplicativo mobile para clinicas de psicologia, combinando tecnologia e visao de produto para simplificar as operacoes diarias de profissionais da saude mental.",
       "Meu objetivo e construir uma carreira internacional trabalhando remotamente com times que valorizam qualidade de software, inovacao e aprendizado continuo. Acredito que grandes produtos sao criados combinando engenharia solida, curiosidade e foco constante em resolver problemas reais da forma mais simples e eficaz possivel.",
     ],
@@ -169,25 +211,36 @@ const translations = {
         role: "Desenvolvedor Full-Stack Junior",
         company: "Agrosys",
         url: "https://www.agrosys.com.br/",
-        description:
-          "Atualmente, trabalho no time de inovacao da Agrosys, onde nosso foco e pesquisar e implementar novas tecnologias e funcionalidades para o sistema ERP da empresa. Nosso principal foco atual e integrar Inteligencia Artificial (IA) ao ERP. Tambem desenvolvo e mantenho telas e funcionalidades de negocio do ERP, alem de manter os aplicativos mobile da empresa baseados em Cordova e gerenciar sua publicacao e atualizacoes na Google Play Store e Apple App Store.",
-        stack: ["Progress ABL", "AngularJS", "jQuery", "JavaScript", "PHP", "Cordova", "Docker", "Integracao de IA"],
+        description: [
+          "Desenvolvimento e evolucao de sistemas ERP, incluindo implementacao de novas funcionalidades, correcao de bugs, automacao de processos e evolucao da arquitetura das aplicacoes.",
+          "Desenvolvimento de aplicacoes web e mobile, atuando no frontend com JavaScript, TypeScript, Angular, jQuery, HTML e CSS, e no backend com Progress OpenEdge (ABL), PHP e Python.",
+          "Desenvolvimento e manutencao de aplicacoes mobile com AngularJS e Cordova, incluindo processos de publicacao, atualizacao e manutencao nas lojas de aplicativos.",
+          "Desenvolvimento de solucoes de Inteligencia Artificial aplicadas ao ERP, com foco em LLMs, RAG e sistemas agentic, utilizando LangGraph, tool calling, FastMCP, bancos vetoriais como Weaviate e APIs de modelos de linguagem.",
+          "Definicao e evolucao de arquiteturas de sistemas agentic, trabalhando na orquestracao entre agentes especializados, ferramentas, modelos de linguagem e sistemas internos.",
+          "Desenvolvimento de extensao para VS Code voltada a documentacao e disseminacao dos padroes internos de desenvolvimento, permitindo que ferramentas de IA, como GitHub Copilot, utilizem esse conhecimento como contexto durante o desenvolvimento.",
+          "Desenvolvimento de chatbot integrado ao ERP, utilizando LLMs, tool calling e integracao com ferramentas e servicos internos para atendimento e suporte a clientes.",
+          "Participacao na avaliacao tecnica de candidatos, analisando qualidade de codigo, arquitetura, implementacao e boas praticas de desenvolvimento.",
+        ],
+        stack: ["Progress ABL", "JavaScript", "TypeScript", "Angular", "AngularJS", "jQuery", "PHP", "Python", "Cordova", "LangGraph", "RAG", "Weaviate", "FastMCP"],
       },
       {
         period: "2025/1",
         role: "Estagiario Full Stack Developer",
         company: "Agrosys",
         url: "https://www.agrosys.com.br/",
-        description:
-          "Durante meu estagio na Agrosys, trabalhei no desenvolvimento e manutencao de funcionalidades do ERP enquanto construia uma base solida em desenvolvimento de software. Ganhei experiencia pratica com Progress OpenEdge ABL, JavaScript, jQuery, HTML, CSS e Linux, contribuindo com aplicacoes de negocio reais e aprimorando meu entendimento sobre desenvolvimento de software corporativo, debugging e manutencao de sistemas.",
-        stack: ["Progress ABL", "JavaScript", "jQuery", "HTML", "CSS", "Linux"],
+        description: [
+          "Durante meu estagio na Agrosys, tive a oportunidade de aprender e trabalhar com tecnologias como jQuery, Progress OpenEdge, Angular e Apache Cordova.",
+          "Participei do desenvolvimento e da manutencao de sistemas, realizando correcoes de bugs, implementando novas funcionalidades e atendendo as demandas da equipe.",
+          "Essa experiencia me permitiu desenvolver minhas habilidades tecnicas, aprender na pratica como funciona o desenvolvimento de software em um ambiente profissional e evoluir na resolucao de problemas e no trabalho em equipe.",
+        ],
+        stack: ["jQuery", "Progress OpenEdge", "Angular", "Apache Cordova", "HTML5", "CSS", "JavaScript"],
       },
     ],
     skills: [
-      { category: "Frontend", items: ["JavaScript", "AngularJS", "React", "Bootstrap"] },
-      { category: "Backend", items: ["Node.js", "Java", "Spring Boot", "Progress ABL", "REST APIs"] },
-      { category: "Banco de Dados & Infra", items: ["PostgreSQL", "Docker", "Kubernetes", "Vercel", "Google Cloud Platform", "AWS"] },
-      { category: "Ferramentas & Praticas", items: ["Git", "CI/CD", "Playwright", "Figma", "Agile"] },
+      { category: "Frontend", items: ["TypeScript", "JavaScript", "Angular", "AngularJS", "jQuery", "HTML5", "CSS"] },
+      { category: "Backend", items: ["Java", "Python", "PHP", "Progress OpenEdge (ABL)", "SQL"] },
+      { category: "IA & LLM", items: ["LLMs", "RAG", "LangGraph", "LangChain", "Agentes de IA", "Tool Calling"] },
+      { category: "Mobile, Infra & Ferramentas", items: ["Apache Cordova", "Docker", "Kubernetes", "Linux", "Git"] },
     ],
     projects: [
       {
@@ -209,7 +262,34 @@ const translations = {
         repo: "https://github.com/marcosgoudinho/my-page.git",
       },
     ],
+    awards: [
+      {
+        date: "2026-07-01",
+        title: "Selo de Inovacao do Mes",
+        issuer: "Agrosys",
+        description:
+          "Reconhecimento de Inovacao do Mes pelo desenvolvimento do chatbot corporativo da Agrosys, disponibilizado aos clientes como primeira etapa do atendimento. A solucao utiliza a tecnica RAG (Retrieval-Augmented Generation) para responder duvidas com base na base de conhecimento da empresa, auxiliando na resolucao de problemas antes da abertura de chamados.",
+      },
+    ],
     education: [
+      {
+        startDate: "2023-02-01",
+        endDate: "2026-12-31",
+        degree: "Bacharelado em Engenharia de Software",
+        school: "SATC - Criciuma, SC",
+        description:
+          "Atualmente na oitava e ultima fase, com conclusao prevista para dezembro de 2026. O curso abrange arquitetura de software, algoritmos, bancos de dados, desenvolvimento web e mobile e praticas de engenharia de software.",
+      },
+      {
+        startDate: "2026-08-03",
+        endDate: "2026-08-03",
+        degree: "Docker para Desenvolvedores (com Docker Swarm e Kubernetes)",
+        school: "Udemy - Matheus Battisti (Hora de Codar)",
+        description:
+          "Curso de 13,5 horas abordando containers, imagens, volumes, redes e Docker Compose, ate a orquestracao com Docker Swarm e Kubernetes.",
+        certificate: "/certificates/docker.png",
+        credentialUrl: "https://www.udemy.com/certificate/UC-bff059c8-db22-43fb-9631-b4433cc47c0a/",
+      },
       {
         startDate: "2024-07-01",
         endDate: "2026-07-04",
@@ -255,6 +335,7 @@ export function getPortfolioData(language: Language) {
     experiences: t.experiences,
     skills: t.skills,
     projects: t.projects,
+    awards: t.awards,
     education: t.education,
   }
 }

@@ -6,6 +6,7 @@ import { About } from "@/components/about"
 import { Experience } from "@/components/experience"
 import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
+import { Awards } from "@/components/awards"
 import { Education } from "@/components/education"
 import { Terminal } from "@/components/terminal"
 import { Contact } from "@/components/contact"
@@ -29,6 +30,7 @@ export default function Page() {
           <Experience />
           <Skills />
           <Projects />
+          <Awards />
           <Education />
           <Terminal />
           <Contact />

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { SectionHeading } from "@/components/section-heading"
 import { ImageLightbox } from "@/components/image-lightbox"
@@ -19,6 +19,11 @@ function formatDateRange(startDate: string, endDate: string): string {
   
   const endMonth = monthNames[end.getUTCMonth()]
   const endYear = end.getUTCFullYear()
+
+  // One-off certifications carry a single completion date, so avoid "Aug 2026 - Aug 2026".
+  if (startMonth === endMonth && startYear === endYear) {
+    return `${startMonth} ${startYear}`
+  }
 
   return `${startMonth} ${startYear} — ${endMonth} ${endYear}`
 }
@@ -39,7 +44,12 @@ export function Education() {
     <section id="education" aria-label="Education and certifications" className="scroll-mt-24">
       <SectionHeading>{sectionTitles.education}</SectionHeading>
       <ol className="space-y-3">
-        {displayedEducation.map((item, i) => (
+        {displayedEducation.map((item, i) => {
+          // Not every entry has a certificate image or a public credential link.
+          const certificate = "certificate" in item ? item.certificate : null
+          const credentialUrl = "credentialUrl" in item ? item.credentialUrl : null
+
+          return (
           <li key={item.degree}>
             <Reveal delay={i * 80}>
               <div className="grid gap-3 rounded-lg p-4 transition-colors hover:bg-card sm:grid-cols-8 sm:gap-6">
@@ -50,20 +60,34 @@ export function Education() {
                   <h3 className="font-medium text-foreground">{item.degree}</h3>
                   <p className="text-sm text-primary">{item.school}</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                  {item.certificate && (
-                    <button
-                      onClick={() => setSelectedCertificate(item.certificate)}
-                      className="mt-3 inline-flex items-center gap-2 rounded-md bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
-                      aria-label={`View ${item.degree} certificate`}
-                    >
-                      {ui.viewCertificate}
-                    </button>
-                  )}
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    {certificate && (
+                      <button
+                        onClick={() => setSelectedCertificate(certificate)}
+                        className="inline-flex items-center gap-2 rounded-md bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+                        aria-label={`View ${item.degree} certificate`}
+                      >
+                        {ui.viewCertificate}
+                      </button>
+                    )}
+                    {credentialUrl && (
+                      <a
+                        href={credentialUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
+                      >
+                        {ui.verifyCredential}
+                        <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </Reveal>
           </li>
-        ))}
+          )
+        })}
       </ol>
 
       {/* Ver Mais / Ver Menos Button */}

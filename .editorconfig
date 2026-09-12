@@ -1,0 +1,12 @@
+# Accented Portuguese text lives in lib/portfolio-data.ts; saving a file as
+# ANSI/Latin-1 corrupts it and breaks the build (see commit 2a2d650).
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{ts,tsx,js,jsx,mjs,css,json,md}]
+indent_style = space
+indent_size = 2

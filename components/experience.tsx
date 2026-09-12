@@ -38,11 +38,9 @@ export function Experience() {
                     {job.role} · {job.company}
                     <ArrowUpRight className="ml-1 size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
                   </h3>
-                  <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
+                  <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-muted-foreground marker:text-primary">
                     {job.description.map((item) => (
-                      <li key={item} className="relative pl-4 before:absolute before:left-0 before:text-primary before:content-['\\2022']">
-                        {item}
-                      </li>
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
                   <ul className="mt-3 flex flex-wrap gap-2">
